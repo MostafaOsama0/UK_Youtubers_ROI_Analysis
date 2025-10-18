@@ -1,0 +1,53 @@
+USE Top_UK_Youtubers;
+
+create view view_Uk_Youtubers AS
+
+select cast(substring(nombre,1,CHARINDEX('@',NOMBRE)-1) As varchar(100)) Channel_name,
+	   [total_subscribers]
+      ,[total_views]
+      ,[total_videos]
+from youtube_data_from_python;
+
+select count(*) Total_records
+from view_Uk_Youtubers
+
+Select *
+From view_Uk_Youtubers
+
+select count(*)
+from 
+	INFORMATION_SCHEMA.COLUMNS
+where TABLE_NAME='view_UK_youtubers'
+
+select Channel_name,count(Channel_name) 
+from view_Uk_Youtubers
+group by Channel_name
+Having count(channel_name) > 1
+
+--Calculations
+Declare @ConversionRate Float = 2.00;
+Declare @ProductCost Money = 5.0;
+Declare @CampaignCost Money = 50000.0;
+
+With ChannelData As(
+Select
+		Channel_name,
+		total_views,
+		total_videos,
+		Round((Cast(total_views AS Float)/total_videos),-4) Rounded_Avg_ViewPerVideo,
+		total_views/total_videos AS AVG_ViewsPerVideo
+From
+	view_Uk_Youtubers
+)
+
+Select 
+	Channel_name,
+	Sum((Rounded_Avg_ViewPerVideo * @ConversionRate)) Potential_Units_Sold_Per_Video,
+	sum((Rounded_Avg_ViewPerVideo * @ConversionRate * @ProductCost)) Potential_Revenue_Per_Video,
+	sum((Rounded_Avg_ViewPerVideo * @ConversionRate * @ProductCost)-@CampaignCost) Net_Profit
+FROM 
+	ChannelData
+group by 
+	Channel_name
+Order BY
+	Net_Profit Desc
