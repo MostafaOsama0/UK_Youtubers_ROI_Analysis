@@ -2,15 +2,15 @@
 
 Welcome to the **Influencer ROI Analysis** project! This solution uses **Power BI** to deliver a dynamic simulation tool for marketing profitability and channel performance.
 
-![Demo](https://github.com/MostafaOsama0/UK_Youtubers_ROI_Analysis/blob/main/Images/Influencer%20Profitability%20simulator.png)
-![Demo](https://github.com/MostafaOsama0/UK_Youtubers_ROI_Analysis/blob/main/Images/The%20Deep%20dive.png)
 
 ## 📄 Project Pages
 
 1.  **Influencer Profitability Simulator:** Ranks channels by forecasted `Net Profit` using dynamic cost assumptions (What-If Slicers).
+
 2.  **Channel Performance Deep Dive:** Explains profitability through engagement analysis, using a **Scatter Plot (Audience Quality vs. Reach)** and a **Combo Chart (Views vs. Videos)**.
 
----
+![Demo](https://github.com/MostafaOsama0/UK_Youtubers_ROI_Analysis/blob/main/Images/Influencer%20Profitability%20simulator.png)
+![Demo](https://github.com/MostafaOsama0/UK_Youtubers_ROI_Analysis/blob/main/Images/The%20Deep%20dive.png)
 
 ---
 
